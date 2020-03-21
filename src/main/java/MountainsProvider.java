@@ -34,13 +34,13 @@ public class MountainsProvider implements FacetProvider {
 
     @Override
     public void setSeed(long seed) {
-        mountainNoise = new SubSampledNoise(new BrownianNoise(new PerlinNoise(seed + 2), 2), new Vector2f(0.001f, 0.001f), 1);
+        mountainNoise = new SubSampledNoise(new BrownianNoise(new PerlinNoise(seed + 2), 8), new Vector2f(0.01f, 0.01f), 1);
     }
 
     @Override
     public void process(GeneratingRegion region) {
         SurfaceHeightFacet facet = region.getRegionFacet(SurfaceHeightFacet.class);
-        float mountainHeight = 40;
+        float mountainHeight = 60;
         // loop through every position on our 2d array
         Rect2i processRegion = facet.getWorldRegion();
         for (BaseVector2i position : processRegion.contents()) {
