@@ -53,7 +53,7 @@ public class MountainsProvider implements ConfigurableFacetProvider {
 
     @Override
     public void setSeed(long seed) {
-        mountainNoise = new SubSampledNoise(new BrownianNoise(new PerlinNoise(seed + 2), 8), new Vector2f(0.01f, 0.01f), 1);
+        mountainNoise = new SubSampledNoise(new BrownianNoise(new PerlinNoise(seed + 2), 2), new Vector2f(0.01f, 0.01f), 1);
     }
 
     @Override

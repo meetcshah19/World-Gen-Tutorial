@@ -21,7 +21,7 @@ import org.terasology.world.generation.facets.SurfaceHeightFacet;
  * limitations under the License.
  */
 @Produces(HouseFacet.class)
-@Requires(@Facet(SurfaceHeightFacet.class))
+@Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(sides = 4)))
 public class HouseProvider implements FacetProvider {
 
     private Noise noise;
@@ -53,7 +53,7 @@ public class HouseProvider implements FacetProvider {
                         surfaceHeight <= facet.getWorldRegion().maxY()) {
 
                     // TODO: check for overlap
-                    if (noise.noise(wx, wz) > 0.999) {
+                    if (noise.noise(wx, wz) > 0.98) {
                         facet.setWorld(wx, surfaceHeight, wz, new House());
                     }
                 }
