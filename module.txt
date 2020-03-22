@@ -4,6 +4,6 @@
     "author" : "",
     "displayName" : "MySample",
     "description" : "",
-    "dependencies" : [{"id": "Core", "minVersion": "3.0.0"}],
+    "dependencies" : [{"id": "Core", "minVersion": "3.0.0"} , {"id": "AdventureAssets", "minVersion": "0.1.0"}],
     "serverSideOnly" : false
 }

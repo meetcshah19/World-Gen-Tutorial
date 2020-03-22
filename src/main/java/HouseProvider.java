@@ -1,5 +1,6 @@
 import org.terasology.math.TeraMath;
 import org.terasology.math.geom.Rect2i;
+import org.terasology.math.geom.Vector3f;
 import org.terasology.utilities.procedural.Noise;
 import org.terasology.utilities.procedural.WhiteNoise;
 import org.terasology.world.generation.*;
@@ -53,8 +54,11 @@ public class HouseProvider implements FacetProvider {
                         surfaceHeight <= facet.getWorldRegion().maxY()) {
 
                     // TODO: check for overlap
-                    if (noise.noise(wx, wz) > 0.98) {
-                        facet.setWorld(wx, surfaceHeight, wz, new House());
+                    if (noise.noise(wx, wz) > 0.99) {
+                        House h=new House(new Vector3f(wx,surfaceHeight,wz));
+                        facet.setWorld(wx, surfaceHeight, wz, h);
+                        facet.addHouse(h);
+
                     }
                 }
             }

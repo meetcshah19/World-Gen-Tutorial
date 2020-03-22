@@ -2,6 +2,10 @@ import org.terasology.math.Region3i;
 import org.terasology.world.generation.Border3D;
 import org.terasology.world.generation.facets.base.SparseObjectFacet3D;
 
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
 /*
  * Copyright 2020 MovingBlocks
  *
@@ -18,8 +22,14 @@ import org.terasology.world.generation.facets.base.SparseObjectFacet3D;
  * limitations under the License.
  */
 public class HouseFacet extends SparseObjectFacet3D<House> {
-
+    private Set<House> altars = new HashSet<>();
     public HouseFacet(Region3i targetRegion, Border3D border) {
         super(targetRegion, border);
+    }
+    public void addHouse(House altar) {
+        altars.add(altar);
+    }
+    public Set<House> getHouses() {
+        return Collections.unmodifiableSet(altars);
     }
 }

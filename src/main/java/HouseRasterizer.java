@@ -28,11 +28,11 @@ import java.util.Map;
  * limitations under the License.
  */
 public class HouseRasterizer implements WorldRasterizer {
-    private Block stone;
+    private Block altarOfResurrection;
 
     @Override
     public void initialize() {
-        stone = CoreRegistry.get(BlockManager.class).getBlock("CoreBlocks:Stone");
+        altarOfResurrection = CoreRegistry.get(BlockManager.class).getBlock("AdventureAssets:AltarOfResurrectionRoot");
     }
 
     @Override
@@ -43,18 +43,11 @@ public class HouseRasterizer implements WorldRasterizer {
             // there should be a house here
             // create a couple 3d regions to help iterate through the cube shape, inside and out
             Vector3i centerHousePosition = new Vector3i(entry.getKey());
-            int extent = entry.getValue().getExtent();
-            centerHousePosition.add(0, extent, 0);
-            Region3i walls = Region3i.createFromCenterExtents(centerHousePosition, extent);
-            Region3i inside = Region3i.createFromCenterExtents(centerHousePosition, extent - 1);
 
-            // loop through each of the positions in the cube, ignoring the inside
-            for (Vector3i newBlockPosition : walls) {
-                if (chunkRegion.getRegion().encompasses(newBlockPosition)
-                        && !inside.encompasses(newBlockPosition)) {
-                    chunk.setBlock(ChunkMath.calcBlockPos(newBlockPosition), stone);
-                }
-            }
+                    chunk.setBlock(ChunkMath.calcBlockPos(centerHousePosition), altarOfResurrection);
+
+
+
         }
     }
 }
