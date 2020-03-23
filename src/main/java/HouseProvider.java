@@ -54,7 +54,7 @@ public class HouseProvider implements FacetProvider {
                         surfaceHeight <= facet.getWorldRegion().maxY()) {
 
                     // TODO: check for overlap
-                    if (noise.noise(wx, wz) > 0.99) {
+                    if (noise.noise(wx, wz) > 0.9999) {
                         House h=new House(new Vector3f(wx,surfaceHeight,wz));
                         facet.setWorld(wx, surfaceHeight, wz, h);
                         facet.addHouse(h);

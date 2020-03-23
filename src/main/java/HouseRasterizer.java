@@ -32,7 +32,7 @@ public class HouseRasterizer implements WorldRasterizer {
 
     @Override
     public void initialize() {
-        altarOfResurrection = CoreRegistry.get(BlockManager.class).getBlock("AdventureAssets:AltarOfResurrectionRoot");
+        altarOfResurrection = CoreRegistry.get(BlockManager.class).getBlock("CoreBlocks:AltarOfResurrectionRoot");
     }
 
     @Override

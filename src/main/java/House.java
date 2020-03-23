@@ -17,9 +17,7 @@ import org.terasology.math.geom.Vector3f;
  */
 public class House {
     Vector3f loc;
-    public int getExtent() {
-        return 4;
-    }
+
     public House(Vector3f loc){
         this.loc=loc;
     }
